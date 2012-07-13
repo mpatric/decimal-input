@@ -6,13 +6,14 @@
 @interface IHViewController()
 
 @property (assign, nonatomic) int maximumFractionDigits;
+@property (strong, nonatomic) NSString* decimalSeparator;
 
 @end
 
 
 @implementation IHViewController
 
-@synthesize textField = _textField, maximumFractionDigits = _maximumFractionDigits;
+@synthesize textField = _textField, maximumFractionDigits = _maximumFractionDigits, decimalSeparator = _decimalSeparator;
 
 - (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -21,6 +22,7 @@
         [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
         [numberFormatter setCurrencyCode:@"GBP"];
         self.maximumFractionDigits = numberFormatter.maximumFractionDigits;
+        self.decimalSeparator = numberFormatter.decimalSeparator;
         [numberFormatter release];
     }
     return self;
@@ -55,13 +57,13 @@
     // Update the string in the text input
     NSMutableString* currentString = [NSMutableString stringWithString:textField.text];
     [currentString replaceCharactersInRange:range withString:string];
-    // Strip out the period
-    [currentString replaceOccurrencesOfString:@"." withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [currentString length])];
+    // Strip out the decimal separator
+    [currentString replaceOccurrencesOfString:self.decimalSeparator withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [currentString length])];
     // Generate a new string for the text input
-    double currentValue = [currentString intValue];
-    NSString* formatString = [NSString stringWithFormat:@"%%.%df", self.maximumFractionDigits];
+    int currentValue = [currentString intValue];
+    NSString* format = [NSString stringWithFormat:@"%%.%df", self.maximumFractionDigits];
     double minorUnitsPerMajor = pow(10, self.maximumFractionDigits);
-    NSString* newString = [NSString stringWithFormat:formatString, currentValue / minorUnitsPerMajor];
+    NSString* newString = [NSString stringWithFormat:format, currentValue / minorUnitsPerMajor];
     if (newString.length <= MAX_LENGTH) {
         textField.text = newString;
     }
