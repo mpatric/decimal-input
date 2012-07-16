@@ -12,9 +12,9 @@
 		4C1CEAA815B069C40088C983 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1CEAA715B069C40088C983 /* CoreGraphics.framework */; };
 		4C1CEAAE15B069C40088C983 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CEAAC15B069C40088C983 /* InfoPlist.strings */; };
 		4C1CEAB015B069C40088C983 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CEAAF15B069C40088C983 /* main.m */; };
-		4C1CEAB415B069C40088C983 /* IHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CEAB315B069C40088C983 /* IHAppDelegate.m */; };
-		4C1CEAB715B069C40088C983 /* IHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CEAB615B069C40088C983 /* IHViewController.m */; };
-		4C1CEABA15B069C40088C983 /* IHViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CEAB815B069C40088C983 /* IHViewController.xib */; };
+		4C1CEAB415B069C40088C983 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CEAB315B069C40088C983 /* AppDelegate.m */; };
+		4C1CEAB715B069C40088C983 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CEAB615B069C40088C983 /* MyViewController.m */; };
+		4C1CEABA15B069C40088C983 /* MyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C1CEAB815B069C40088C983 /* MyViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,11 +26,11 @@
 		4C1CEAAD15B069C40088C983 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C1CEAAF15B069C40088C983 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4C1CEAB115B069C40088C983 /* DecimalInput-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DecimalInput-Prefix.pch"; sourceTree = "<group>"; };
-		4C1CEAB215B069C40088C983 /* IHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHAppDelegate.h; sourceTree = "<group>"; };
-		4C1CEAB315B069C40088C983 /* IHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IHAppDelegate.m; sourceTree = "<group>"; };
-		4C1CEAB515B069C40088C983 /* IHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHViewController.h; sourceTree = "<group>"; };
-		4C1CEAB615B069C40088C983 /* IHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IHViewController.m; sourceTree = "<group>"; };
-		4C1CEAB915B069C40088C983 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/IHViewController.xib; sourceTree = "<group>"; };
+		4C1CEAB215B069C40088C983 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4C1CEAB315B069C40088C983 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4C1CEAB515B069C40088C983 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		4C1CEAB615B069C40088C983 /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		4C1CEAB915B069C40088C983 /* en */ = {isa = PBXFileReference; name = en; path = en.lproj/MyViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +77,11 @@
 		4C1CEAA915B069C40088C983 /* DecimalInput */ = {
 			isa = PBXGroup;
 			children = (
-				4C1CEAB215B069C40088C983 /* IHAppDelegate.h */,
-				4C1CEAB315B069C40088C983 /* IHAppDelegate.m */,
-				4C1CEAB515B069C40088C983 /* IHViewController.h */,
-				4C1CEAB615B069C40088C983 /* IHViewController.m */,
-				4C1CEAB815B069C40088C983 /* IHViewController.xib */,
+				4C1CEAB215B069C40088C983 /* AppDelegate.h */,
+				4C1CEAB315B069C40088C983 /* AppDelegate.m */,
+				4C1CEAB515B069C40088C983 /* MyViewController.h */,
+				4C1CEAB615B069C40088C983 /* MyViewController.m */,
+				4C1CEAB815B069C40088C983 /* MyViewController.xib */,
 				4C1CEAAA15B069C40088C983 /* Supporting Files */,
 			);
 			path = DecimalInput;
@@ -150,7 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1CEAAE15B069C40088C983 /* InfoPlist.strings in Resources */,
-				4C1CEABA15B069C40088C983 /* IHViewController.xib in Resources */,
+				4C1CEABA15B069C40088C983 /* MyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,8 +162,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1CEAB015B069C40088C983 /* main.m in Sources */,
-				4C1CEAB415B069C40088C983 /* IHAppDelegate.m in Sources */,
-				4C1CEAB715B069C40088C983 /* IHViewController.m in Sources */,
+				4C1CEAB415B069C40088C983 /* AppDelegate.m in Sources */,
+				4C1CEAB715B069C40088C983 /* MyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,12 +178,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		4C1CEAB815B069C40088C983 /* IHViewController.xib */ = {
+		4C1CEAB815B069C40088C983 /* MyViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4C1CEAB915B069C40088C983 /* en */,
 			);
-			name = IHViewController.xib;
+			name = MyViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface IHViewController : UIViewController <UITextFieldDelegate>
+@interface MyViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField* textField;
 

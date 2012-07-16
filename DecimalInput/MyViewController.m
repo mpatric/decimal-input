@@ -1,9 +1,9 @@
-#import "IHViewController.h"
+#import "MyViewController.h"
 
 #define MAX_LENGTH 8
 
 
-@interface IHViewController()
+@interface MyViewController()
 
 @property (assign, nonatomic) int maximumFractionDigits;
 @property (strong, nonatomic) NSString* decimalSeparator;
@@ -11,7 +11,7 @@
 @end
 
 
-@implementation IHViewController
+@implementation MyViewController
 
 @synthesize textField = _textField, maximumFractionDigits = _maximumFractionDigits, decimalSeparator = _decimalSeparator;
 
