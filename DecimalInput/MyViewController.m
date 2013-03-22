@@ -54,8 +54,13 @@
 #pragma mark - UITextFieldDelegate methods
 
 - (BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString*)string {
+    // get current cursor position
+    UITextRange* selectedRange = [textField selectedTextRange];
+    UITextPosition* start = textField.beginningOfDocument;
+    NSInteger cursorOffset = [textField offsetFromPosition:start toPosition:selectedRange.start];
     // Update the string in the text input
     NSMutableString* currentString = [NSMutableString stringWithString:textField.text];
+    NSUInteger currentLength = currentString.length;
     [currentString replaceCharactersInRange:range withString:string];
     // Strip out the decimal separator
     [currentString replaceOccurrencesOfString:self.decimalSeparator withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [currentString length])];
@@ -66,6 +71,14 @@
     NSString* newString = [NSString stringWithFormat:format, currentValue / minorUnitsPerMajor];
     if (newString.length <= MAX_LENGTH) {
         textField.text = newString;
+        // if the cursor was not at the end of the string being entered, restore cursor position
+        if (cursorOffset != currentLength) {
+            int lengthDelta = newString.length - currentLength;
+            int newCursorOffset = MAX(0, MIN(newString.length, cursorOffset + lengthDelta));
+            UITextPosition* newPosition = [textField positionFromPosition:textField.beginningOfDocument offset:newCursorOffset];
+            UITextRange* newRange = [textField textRangeFromPosition:newPosition toPosition:newPosition];
+            [textField setSelectedTextRange:newRange];
+        }
     }
     return NO;
 }
