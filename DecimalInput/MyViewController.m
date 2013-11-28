@@ -46,7 +46,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     // Default value
-    self.textField.text = @"0.00";
+    self.textField.text = [NSString stringWithFormat:@"0%@00", self.decimalSeparator];
     // Pop up keyboard
     [self.textField becomeFirstResponder];
 }
@@ -68,7 +68,7 @@
     int currentValue = [currentString intValue];
     NSString* format = [NSString stringWithFormat:@"%%.%df", self.maximumFractionDigits];
     double minorUnitsPerMajor = pow(10, self.maximumFractionDigits);
-    NSString* newString = [NSString stringWithFormat:format, currentValue / minorUnitsPerMajor];
+    NSString* newString = [[NSString stringWithFormat:format, currentValue / minorUnitsPerMajor] stringByReplacingOccurrencesOfString:@"." withString:self.decimalSeparator];
     if (newString.length <= MAX_LENGTH) {
         textField.text = newString;
         // if the cursor was not at the end of the string being entered, restore cursor position
